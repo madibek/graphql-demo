@@ -12,7 +12,10 @@ const root = { friend: () => {
             lastName: 'ayupov',
             gender: 'Male',
             language: 'Kazakh',
-            email: 'malgara@me.com'
+            emails: [
+                { email: 'malgara@me.com'},
+                { email: 'malgara-dev@me.com'}
+            ]
         }
     }};
 
