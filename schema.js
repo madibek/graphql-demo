@@ -17,11 +17,17 @@ const schema = buildSchema(`
         gender: Gender
         age: Int
         language: String
-        email: String 
+        email: String
+        contacts: [Contact]
     }
     
     type Email {
         email: String
+    }
+    
+    type Contact {
+        firstName: String
+        lastName: String
     }
     
     type Mutation {
@@ -35,7 +41,13 @@ const schema = buildSchema(`
         gender: Gender
         age: Int
         language: String
-        email: String 
+        email: String
+        contacts: [ContactInput]
+    }
+    
+    input ContactInput {
+        firstName: String
+        lastName: String
     }
 `);
 
