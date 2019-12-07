@@ -5,11 +5,16 @@ const schema = buildSchema(`
         getFriend(id: ID): Friend
     }
     
+    enum Gender {
+        MALE,
+        FEMALE
+    }
+    
     type Friend {
         id: ID
         firstName: String
         lastName: String
-        gender: String
+        gender: Gender
         age: Int
         language: String
         email: String 
@@ -27,7 +32,7 @@ const schema = buildSchema(`
         id: ID
         firstName: String
         lastName: String
-        gender: String
+        gender: Gender
         age: Int
         language: String
         email: String 
