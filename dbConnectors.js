@@ -48,11 +48,12 @@ const Aliens = sequelise.define('aliens', {
     planet: { type: Sequelize.STRING},
 });
 
-Aliens.sync({ force: true}).then(() => {
+Aliens.sync({ force: true }).then(() => {
     _.times(10, (i) => {
         Aliens.create({
-            firstName: casual._first_name.toString(),
-            lastName: casual._last_name.toString(),
+            id: Number.parseInt(casual._uuid),
+            firstName: casual.first_name,
+            lastName: casual.last_name,
             planet: casual.word
         });
     });

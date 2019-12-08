@@ -1,6 +1,4 @@
-import crypto from 'crypto';
-import mongoose from 'mongoose';
-import { Friends } from "../dbConnectors";
+import { Friends, Aliens } from "../dbConnectors";
 
 const resolvers = {
     Query: {
@@ -14,6 +12,9 @@ const resolvers = {
                     }
                 })
             })
+        },
+        getAliens: () => {
+            return Aliens.findAll();
         }
     },
     Mutation: {

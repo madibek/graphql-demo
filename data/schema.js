@@ -4,6 +4,7 @@ import resolvers from "./resolvers";
 const typeDefs = `
     type Query {
         getFriend(id: ID!): Friend
+        getAliens: [Alien]
     }
     
     enum Gender {
@@ -31,7 +32,8 @@ const typeDefs = `
         lastName: String
     }
     
-    type Aliens {
+    type Alien {
+        id: Int
         firstName: String
         lastName: String
         planet: String
