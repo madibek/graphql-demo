@@ -4,8 +4,16 @@ import { Friends } from "../dbConnectors";
 
 const resolvers = {
     Query: {
-        getFriend: ({id}) => {
-            return new Friend(id, FriendDataBase[id]);
+        getFriend: (root, { id }) => {
+            return new Promise((resolve, reject) => {
+                Friends.find({ _id: id}, (err, friends) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(friends[0]);
+                    }
+                })
+            })
         }
     },
     Mutation: {

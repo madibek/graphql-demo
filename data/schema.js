@@ -3,7 +3,7 @@ import resolvers from "./resolvers";
 
 const typeDefs = `
     type Query {
-        getFriend(id: ID): Friend
+        getFriend(id: ID!): Friend
     }
     
     enum Gender {
