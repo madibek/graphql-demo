@@ -9,7 +9,7 @@ const resolvers = {
         }
     },
     Mutation: {
-        createFriend: (root, {input}) => {
+        createFriend: (root, { input }) => {
             // const id = crypto.randomBytes(10).toString('hex');
             const newFriend = new Friends({
                 firstName: input.firstName,
@@ -32,6 +32,17 @@ const resolvers = {
                     }
                 })
             }))
+        },
+        updateFriend: (root, { input }) => {
+            return new Promise((resolve, reject) => {
+               Friends.findOneAndUpdate({ _id: input.id }, input, { new: true }, (err, friend) => {
+                   if (err) {
+                       reject(err);
+                   } else {
+                       resolve(friend);
+                   }
+               });
+            });
         }
     }
 };
